@@ -7,7 +7,6 @@
      font-family: 'Inter', sans-serif;
      font-size: 100%;
      text-decoration: none;
-     list-style: none;
 }
 
 body {
@@ -226,3 +225,25 @@ body {
 }
 
 /* ==FIN RESPONSIVE== */
+
+/* TABLEAU */
+
+table,
+th,
+td {
+     border: 1px solid;
+     padding: 8px;
+}
+
+.note {
+     color: #344E47;
+     font-weight: 800;
+}
+
+table {
+     border-collapse: collapse;
+     border: 4px solid #141F1D;
+     color: #141F1D;
+}
+
+/* FIN TABLEAU */
