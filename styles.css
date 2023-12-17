@@ -1,0 +1,937 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tourney&display=swap');
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Inter', sans-serif;
+     font-size: 100%;
+     text-decoration: none;
+     list-style: none;
+     letter-spacing: 0.18px;
+     scroll-behavior: smooth;
+}
+
+body {
+     position: relative;
+     height: 100%;
+     background-color: #F5F8F6;
+     z-index: 0;
+}
+
+.logo {
+     width: 40px;
+     height: 40px;
+}
+
+/* ==HEADER== */
+.header {
+     position: sticky;
+     top: 0;
+     padding: 24px 32px;
+     background-color: #F5F8F6;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+/* on cache le checkbox qui nous permet de voir l'état de la .navigation */
+.hamburger {
+     display: none;
+}
+
+.containerButton {
+     padding: 12px;
+}
+
+/* on stylise le container (label) qui contient les 3 barres */
+.hamburger+.containerButton {
+     width: 60px;
+     height: 60px;
+     border-radius: 100px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     z-index: 1;
+}
+
+/* on stylise la barre principal */
+.hamburger+.containerButton span {
+     position: relative;
+     width: 100%;
+     height: 3px;
+     background: #344E47;
+}
+
+/* on stylise les barre crée avec BEFORE et AFTER */
+.hamburger+.containerButton span::before,
+.hamburger+.containerButton span::after {
+     content: "";
+     position: absolute;
+     width: inherit;
+     height: inherit;
+     background: #344E47;
+}
+
+/* on positionne la première barre au TOP (absolute) */
+.hamburger+.containerButton span::before {
+     top: -10px;
+}
+
+/* on positionne la deuxième barre au BOTTOM (absolute) */
+.hamburger+.containerButton span::after {
+     top: 10px;
+}
+
+/* quand l'input est checké on rend la barre principal invisible */
+.hamburger:checked+.containerButton span {
+     background: transparent;
+}
+
+/* quand l'input est checké on positionne AFTER et BOTTOM au CENTER (absolute) */
+.hamburger:checked+.containerButton span::after,
+.hamburger:checked+.containerButton span::before {
+     top: 0;
+}
+
+/* quand l'input est checké on applique une rotation de 45 degré sur le BEFORE */
+.hamburger:checked+.containerButton span::before {
+     background-color: #F5F8F6;
+     transform: rotate(45deg);
+}
+
+/* quand l'input est checké on applique une rotation de 45 degré sur le AFTER */
+.hamburger:checked+.containerButton span::after {
+     background-color: #F5F8F6;
+     transform: rotate(-45deg);
+}
+
+/*
+prefers-reduced-motion: no-preference
+
+détecter si un utilisateur a activé un paramètre 
+sur son appareil afin de minimiser la quantité de 
+mouvement non essentiel
+*/
+@media (prefers-reduced-motion: no-preference) {
+     .hamburger+.containerButton span {
+          transition: background 10ms 300ms;
+     }
+
+     .hamburger+.containerButton span::before,
+     .hamburger+.containerButton span::after {
+          transition: top 300ms 350ms, transform 300ms 50ms;
+     }
+
+     .hamburger:checked+.containerButton span::after,
+     .hamburger:checked+.containerButton span::before {
+          transition: top 300ms 50ms, transform 300ms 350ms;
+     }
+
+     .hamburger:focus-visible~.containerButton {
+          transition: outline-offset .25s ease;
+     }
+}
+
+/*  NAVIGATION */
+
+.navigation {
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 24%;
+     height: 100%;
+     padding: 0 32px;
+     background: #344e47;
+     transform: translateX(-100%);
+}
+
+.navigation ul {
+     margin-top: 6rem;
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+}
+
+.navigation ul .list {
+     padding: 1rem;
+     color: #F5F8F6;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 400;
+     line-height: normal;
+}
+
+.navigation ul .list:hover {
+     background-color: #3F6258;
+}
+
+.navigation .linkNav {
+     font-size: 1.25rem;
+     opacity: 0;
+     visibility: hidden;
+}
+
+.hamburger:checked+.containerButton~.navigation {
+     transform: unset;
+     /*on revient à l'état initial*/
+}
+
+.hamburger:checked+.containerButton~.navigation .linkNav {
+     visibility: visible;
+     opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+     .hamburger+.containerButton span {
+          transition: background 10ms 300ms;
+     }
+
+     .hamburger+.containerButton span::before,
+     .hamburger+.containerButton span::after {
+          transition: top 300ms 350ms, transform 300ms 50ms;
+     }
+
+     .hamburger:checked+.containerButton span::after,
+     .hamburger:checked+.containerButton span::before {
+          transition: top 300ms 50ms, transform 300ms 350ms;
+     }
+
+     .hamburger:focus-visible~.containerButton,
+     .navigation .linkNav:focus-visible,
+     .navigation .linkNav:focus {
+          transition: outline-offset .25s ease;
+     }
+
+     .navigation {
+          transition: transform 0.5s;
+     }
+
+     .navigation .linkNav {
+          transition: visibility 500ms, opacity 500ms 300ms;
+     }
+}
+
+/* FIN .navigationIGATION */
+
+/* ==FIN HEADER== */
+
+/* ==FOOTER */
+.footer {
+     padding: 24px 32px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     gap: 24px;
+}
+
+.footer .textFooter {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     gap: 8px;
+}
+
+.textFooter .textMessage {
+     color: #344E47;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 700;
+}
+
+.textFooter .copyright {
+     color: #141F1D;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 400;
+}
+
+/* ==FIN FOOTER== */
+
+/* =TITLE= */
+.title,
+.ssTitle {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     flex-direction: column;
+     gap: 16px;
+}
+
+.title .textTitle {
+     color: #344E47;
+     font-size: 32px;
+     font-style: normal;
+     font-weight: 700;
+     letter-spacing: 0.32px;
+     text-transform: uppercase;
+}
+
+.ssTitle .textTitle {
+     color: #344E47;
+     font-size: 24px;
+     font-style: normal;
+     font-weight: 700;
+     letter-spacing: 0.32px;
+}
+
+.title .line {
+     width: 100%;
+     height: 3px;
+     background: #344E47;
+}
+
+.ssTitle .line {
+     width: 244px;
+     height: 3px;
+     background: #344E47;
+}
+
+/* =FIN TITLE= */
+
+/* ==SECTION== */
+.section {
+     position: relative;
+     padding: 32px;
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     gap: 32px;
+     flex-direction: column;
+     z-index: -10;
+}
+
+.section:not(:first-of-type) {
+     padding-top: 8%;
+}
+
+/* ==FIN SECTION== */
+
+/* TAGS */
+.tags {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 8px;
+}
+
+.tags .btnProjet {
+     padding: 8px 16px;
+     border: none;
+     border-radius: 40px;
+     background: #344E47;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: #F5F8F6;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 400;
+     cursor: pointer;
+}
+
+.tags .tag {
+     padding: 8px 16px;
+     border-radius: 40px;
+     background: #344E47;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.tag .tagText {
+     color: #F5F8F6;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 400;
+}
+
+/* FIN TAGS */
+
+
+
+
+
+
+
+
+/* ==SECTION 1== */
+/* =SEC1 - A propos= */
+.sec1Container1 {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+/* SEC1 - LEFT */
+.sec1Container1 .left {
+     width: 64%;
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     flex-direction: column;
+     gap: 24px;
+}
+
+.left .ct1TextTitle {
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     flex-direction: column;
+     gap: 12px;
+}
+
+.lfTextTitle .lfTitle {
+     color: #344E47;
+     font-size: 42px;
+     font-style: normal;
+     font-weight: 700;
+     letter-spacing: 0.32px;
+     text-transform: uppercase;
+}
+
+.lfTextTitle .lfTitleSecond {
+     color: #344E47;
+     font-size: 24px;
+     font-style: normal;
+     font-weight: 600;
+     letter-spacing: 0.24px;
+}
+
+.left .lfTextPara {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 400;
+     letter-spacing: 0.18px;
+}
+
+/* FIN SEC1 - LEFT */
+
+/* SEC1 - RIGHT */
+.right,
+.rgImg {
+     width: 422px;
+}
+
+/* FIN SEC1 - RIGHT */
+
+/* SEC1 - RESPONSIVE */
+@media screen and (max-width: 1230px) {
+     .sec1Container1 {
+          flex-wrap: wrap;
+     }
+
+     .sec1Container1 .left {
+          width: 100%
+     }
+
+
+     .right {
+          margin-top: 16px;
+     }
+}
+
+@media screen and (max-width: 460px) {
+
+     .right,
+     .rgImg {
+          width: 100%;
+     }
+}
+
+/* SEC1 - RESPONSIVE */
+/* ==FIN SECTION 1== */
+
+
+
+
+
+
+
+
+
+/* ==SECTION 2== */
+/* =SEC2 - FORMATION - container= */
+.containerFormations {
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     flex-direction: column;
+     gap: 40px;
+}
+
+/* =FIN SEC2 - FORMATION - container= */
+
+/* =SEC2 - FORMATION - formation= */
+.containerFormations .formation {
+     padding-left: 16px;
+     border-left: 16px solid #344E47;
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     gap: 8px;
+}
+
+.formation .bullet {
+     width: 34px;
+     height: 34px;
+     background-color: #BBD4CA;
+     border-radius: 100px;
+}
+
+.formation .informations {}
+
+.informations .informationDate {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 700;
+}
+
+.informations .informationTexte {
+     margin-top: 6px;
+     display: flex;
+     align-items: flex-start;
+     flex-direction: column;
+     gap: 10px;
+}
+
+.informationTexte .informationTexteTitle {
+     color: #344E47;
+     font-size: 24px;
+     font-style: normal;
+     font-weight: 700;
+}
+
+.informationTexte .informationTexteParagraphe {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 400;
+}
+
+/* =SEC2 - FORMATION - formation= */
+/* ==FIN SECTION 2== */
+
+
+
+
+
+
+
+
+
+
+/* ==SECTION 3== */
+.expPro {
+     padding: 24px;
+     border-radius: 51px;
+     background: #DDEAE5;
+     display: flex;
+     align-items: center;
+     align-self: stretch;
+     gap: 24px;
+}
+
+/* =SEC3 - LEFT= */
+.expPro .left,
+.expPro .illExpPro {
+     width: 464px;
+     align-self: stretch;
+}
+
+/* =FIN SEC3 - LEFT= */
+
+/* =SEC3 - RIGHT=*/
+.expPro .right {
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
+     flex-direction: column;
+     gap: 24px;
+     flex: 1 0 0;
+     align-self: stretch;
+}
+
+/* =FIN SEC3 - RIGHT= */
+
+/* =SEC3 - TEXT= */
+.expProRightTextContainer {
+     display: flex;
+     flex-direction: column;
+     gap: 16px;
+}
+
+.expProRightText {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 400;
+}
+
+/* =SEC3 - TEXT= */
+
+/* SEC3 - RESPONSIVE */
+@media screen and (max-width: 1000px) {
+     .expPro {
+          flex-direction: column;
+     }
+
+     .expPro .illExpPro {
+          max-width: 100%;
+     }
+
+     .expPro .left {
+          width: 100%;
+          text-align: center;
+     }
+
+     .expPro .right {
+          width: 100%;
+     }
+}
+
+/* FIN SEC3 - RESPONSIVE */
+/* ==FIN SECTION3== */
+
+
+
+
+
+
+
+
+
+
+
+/* ==SECTION 4== */
+/* SEC4 - QUALITÉ - container */
+.containerQualité {
+     display: flex;
+     gap: 24px;
+     flex-direction: column;
+     flex: 1 0 0;
+     align-self: stretch;
+}
+
+/* FIN SEC4 - QUALITÉ - container */
+
+/* SEC4 - QUALITÉ - ligne */
+.lg1,
+.lg2,
+.lg3 {
+     display: flex;
+     gap: 24px;
+     flex-wrap: wrap;
+     flex: 1 0 0;
+     align-self: stretch;
+}
+
+/* FIN SEC4 - QUALITÉ - ligne */
+
+/* SEC4 - QUALITÉ - carte */
+.card {
+     padding: 16px 32px;
+     border-radius: 16px;
+     background: #DDEAE5;
+     display: flex;
+     align-items: center;
+     gap: 32px;
+     flex-direction: column;
+     flex: 1 0 0;
+     align-self: stretch;
+}
+
+.card .cdIcon {
+     width: 124px;
+     height: 124px;
+}
+
+.card .cdText {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 16px;
+     flex-direction: column;
+     align-self: stretch;
+}
+
+.cdText .cdTitle {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 700;
+     text-transform: uppercase;
+}
+
+.cdText .cdPara {
+     color: #141F1D;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 400;
+     align-self: stretch;
+}
+
+/* FIN SEC4 - QUALITÉ - carte */
+
+/* SEC4 - Compétences technique */
+.compTechniques {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     gap: 24px;
+}
+
+.compTechniques .compTechnique {
+     position: relative;
+     padding: 24px;
+     background: #DDEAE5;
+     border-radius: 24px;
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
+     gap: 16px;
+}
+
+.compTechnique .note {
+     position: relative;
+}
+
+.noteSvg {
+     width: 230px;
+     height: 230px;
+}
+
+.noteSvg .noteCirleNiv1,
+.noteCirleNiv2 {
+     fill: none;
+     stroke-width: 24px;
+     transform: translate(25px, 25px);
+}
+
+.noteCirleNiv1 {
+     stroke: #344E47;
+     stroke-dasharray: 565px;
+     stroke-linecap: round;
+}
+
+.noteCirleNiv2 {
+     stroke: #BBD4CA;
+}
+
+.textContainerComp {
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     flex-direction: column;
+     gap: 24px;
+}
+
+.textContainerComp .titleCompTechnique {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 600;
+}
+
+.textContainerComp .paraCompTechnique {
+     color: #141F1D;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 400;
+}
+
+.noteText {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: #344E47;
+     font-size: 40px;
+     font-style: normal;
+     font-weight: 800;
+}
+
+/* SEC4 - RESPONSIVE */
+@media screen and (max-width: 840px) {
+     .compTechniques .compTechnique {
+          flex-direction: column;
+     }
+}
+
+/* FIN SEC4 - RESPONSIVE */
+
+/* FIN SEC4 - Compétences technique */
+
+/* ==FIN SECTION4== */
+
+/* ==SECTION 5==*/
+.containerProjet {
+     margin: 0 auto;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     gap: 24px;
+}
+
+.containerProjet .projet {
+     width: 100%;
+     padding: 8px 32px;
+     background: #DDEAE5;
+     border-radius: 43px;
+     display: flex;
+     align-items: center;
+     gap: 24px;
+}
+
+.projet .nombreProjet {
+     color: #141F1D;
+     font-size: 100px;
+     font-style: normal;
+     font-family: 'Tourney', sans-serif;
+     font-weight: 400;
+}
+
+.projet .informationProjet {
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     gap: 8px;
+     flex-direction: column;
+}
+
+.informationProjet .titleProjet {
+     color: #141F1D;
+     font-size: 24px;
+     font-style: normal;
+     font-weight: 500;
+}
+
+
+
+/* SEC5 - RESPONSIVE */
+@media screen and (max-width: 545px) {
+     .containerProjet .projet {
+          padding: 24px;
+          flex-direction: column;
+     }
+
+     .projet .informationProjet {
+          align-items: center;
+     }
+}
+
+/* FIN SEC5 - RESPONSIVE */
+/* ==FIN SECTION 5== */
+
+/* ==SECTION 7== */
+.containerCv {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     gap: 32px;
+     align-self: stretch;
+
+}
+
+.containerCv .cv {
+     width: 422px;
+     height: 573px;
+}
+
+.containerCv .btnDownload {
+     padding: 8px 16px;
+     border-radius: 8px;
+     border: 8px solid #344E47;
+     background: #344E47;
+     color: #F5F8F6;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 600;
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+}
+
+/* SEC7 - RESPONSIVE */
+@media screen and (max-width: 460px) {
+     .containerCv .cv {
+          width: 100%;
+          height: unset;
+     }
+}
+
+/* SEC7 - RESPONSIVE */
+/* ==FIN SECTION 7== */
+
+/* ==SECTION 8== */
+
+/* =message= */
+.messageContact {
+     padding: 24px;
+     border-left: 8px solid #344E47;
+     background: #DDEAE5;
+     display: flex;
+     align-items: center;
+     align-self: stretch;
+}
+
+.messageContact .textMessage {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 400;
+}
+
+/* =FIN message= */
+
+/* =contact=*/
+.contacts {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     align-self: stretch;
+}
+
+.contacts .contact {
+     border-top: 3px solid #DDEAE5;
+     padding: 24px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     align-self: stretch;
+}
+
+.contact .contactContainerText {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+}
+
+.contactContainerText .contactText {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 700;
+}
+
+.contact .informationContact {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 700;
+}
+
+/* =FIN contact= */
+/* ==FIN SECTION 8== */
