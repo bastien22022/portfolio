@@ -215,7 +215,6 @@ mouvement non essentiel
 }
 
 /* NAVIGATION RESPONSIVE */
-
 @media screen and (max-width: 840px) {
      .navigation {
           width: 32%;
