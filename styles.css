@@ -216,9 +216,21 @@ mouvement non essentiel
 
 /* NAVIGATION RESPONSIVE */
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 840px) {
+     .navigation {
+          width: 32%;
+     }
+}
+
+@media screen and (max-width: 545px) {
      .navigation {
           width: 48%;
+     }
+}
+
+@media screen and (max-width: 460px) {
+     .navigation {
+          width: 54%;
      }
 }
 
