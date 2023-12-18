@@ -222,6 +222,12 @@ mouvement non essentiel
      }
 }
 
+@media screen and (max-width: 375px) {
+     .navigation {
+          width: 64%;
+     }
+}
+
 /* FIN NAVIGATION RESPONSIVE */
 
 /* FIN .NAVIGATION */
