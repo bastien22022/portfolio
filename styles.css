@@ -214,7 +214,17 @@ mouvement non essentiel
      }
 }
 
-/* FIN .navigationIGATION */
+/* NAVIGATION RESPONSIVE */
+
+@media screen and (max-width: 500px) {
+     .navigation {
+          width: 48%;
+     }
+}
+
+/* FIN NAVIGATION RESPONSIVE */
+
+/* FIN .NAVIGATION */
 
 /* ==FIN HEADER== */
 
