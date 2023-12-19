@@ -321,6 +321,24 @@ mouvement non essentiel
 
 /* =FIN TITLE= */
 
+/* BUTTON */
+
+.btn {
+     padding: 8px 16px;
+     border-radius: 8px;
+     border: 8px solid #344E47;
+     background: #344E47;
+     color: #F5F8F6;
+     font-size: 16px;
+     font-style: normal;
+     font-weight: 600;
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+}
+
+/* FIN BUTTON */
+
 /* ==SECTION== */
 .section {
      position: relative;
@@ -424,7 +442,7 @@ mouvement non essentiel
 
 .lfTextTitle .lfTitleSecond {
      color: #344E47;
-     font-size: 24px;
+     font-size: 32px;
      font-style: normal;
      font-weight: 600;
      letter-spacing: 0.24px;
@@ -511,8 +529,6 @@ mouvement non essentiel
      background-color: #BBD4CA;
      border-radius: 100px;
 }
-
-.formation .informations {}
 
 .informations .informationDate {
      color: #141F1D;
@@ -652,8 +668,7 @@ mouvement non essentiel
 
 /* SEC4 - QUALITÉ - ligne */
 .lg1,
-.lg2,
-.lg3 {
+.lg2 {
      display: flex;
      gap: 24px;
      flex-wrap: wrap;
@@ -788,15 +803,26 @@ mouvement non essentiel
      font-weight: 800;
 }
 
-.compLanguages {
+.otherComps {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+     align-self: stretch;
+     gap: 16px;
+}
+
+.otherComp {
+     padding: 24px;
+     border: 4px solid #344E47;
+     border-radius: 48px;
      display: flex;
      justify-content: center;
      align-items: center;
      gap: 24px;
 }
 
-.compLanguages .compLanguage {
-     position: relative;
+.otherComp .comp {
      padding: 24px;
      background: #DDEAE5;
      border-radius: 24px;
@@ -804,19 +830,19 @@ mouvement non essentiel
      justify-content: flex-start;
      align-items: center;
      flex-direction: column;
-     gap: 16px;
+     gap: 8px;
 }
 
-.compLanguage .level {
+.comp .level {
      color: #344E47;
      font-size: 40px;
      font-style: normal;
      font-weight: 800;
 }
 
-.compLanguages .titleCompLanguage {
+.comp .titleCompLanguage {
      color: #141F1D;
-     font-size: 18px;
+     font-size: 32px;
      font-style: normal;
      font-weight: 600;
 }
@@ -908,20 +934,6 @@ mouvement non essentiel
 .containerCv .cv {
      width: 422px;
      height: 573px;
-}
-
-.containerCv .btnDownload {
-     padding: 8px 16px;
-     border-radius: 8px;
-     border: 8px solid #344E47;
-     background: #344E47;
-     color: #F5F8F6;
-     font-size: 18px;
-     font-style: normal;
-     font-weight: 600;
-     display: flex;
-     align-items: center;
-     cursor: pointer;
 }
 
 /* SEC7 - RESPONSIVE */
