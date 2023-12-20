@@ -857,7 +857,6 @@ mouvement non essentiel
 /* FIN SEC4 - RESPONSIVE */
 
 /* FIN SEC4 - Compétences technique */
-
 /* ==FIN SECTION4== */
 
 /* ==SECTION 5==*/
@@ -919,6 +918,53 @@ mouvement non essentiel
 
 /* FIN SEC5 - RESPONSIVE */
 /* ==FIN SECTION 5== */
+
+/* ==SECTION 6==*/
+
+.divers {
+     display: grid;
+     grid-template-columns: repeat(2, 1fr);
+     grid-template-rows: repeat(2, 1fr);
+     grid-column-gap: 32px;
+     grid-row-gap: 032px;
+}
+
+.divers .diver {
+     padding: 16px;
+     border-radius: 16px;
+     border: 2px solid #141F1D;
+     box-shadow: 8px 8px 4px 0px rgba(20, 31, 29, 0.25);
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     gap: 16px;
+}
+
+.diver .diverTitle {
+     color: #344E47;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 800;
+}
+
+.diver .diverParagraphe {
+     color: #141F1D;
+     font-size: 18px;
+     font-style: normal;
+     font-weight: 400;
+}
+
+/* SEC6 - Repsonsive */
+
+@media screen and (max-width: 476px) {
+     .divers {
+          grid-template-columns: none;
+     }
+}
+
+/* FIN SEC6 - Repsonsive */
+
+/* ==FIN SECTION 6== */
 
 /* ==SECTION 7== */
 .containerCv {
