@@ -351,10 +351,6 @@ mouvement non essentiel
      z-index: -10;
 }
 
-.section:not(:first-of-type) {
-     padding-top: 8%;
-}
-
 /* ==FIN SECTION== */
 
 /* TAGS */
