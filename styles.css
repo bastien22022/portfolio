@@ -804,7 +804,6 @@ mouvement non essentiel
      justify-content: center;
      align-items: center;
      flex-wrap: wrap;
-     align-self: stretch;
      gap: 16px;
 }
 
@@ -813,8 +812,9 @@ mouvement non essentiel
      border: 4px solid #344E47;
      border-radius: 48px;
      display: flex;
-     justify-content: center;
+     justify-content: center; 
      align-items: center;
+     align-self: stretch;
      gap: 24px;
 }
 
