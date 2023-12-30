@@ -139,8 +139,8 @@ mouvement non essentiel
 
 .navigation {
      position: fixed;
-     left: 0;
      top: 0;
+     left: 0;
      width: 24%;
      height: 100%;
      padding: 0 32px;
@@ -848,6 +848,10 @@ mouvement non essentiel
      .compTechniques .compTechnique {
           flex-direction: column;
      }
+
+     .otherComp {
+          width: 100%;
+     }
 }
 
 /* FIN SEC4 - RESPONSIVE */
@@ -912,6 +916,13 @@ mouvement non essentiel
 }
 
 /* SEC5 - Repsonsive */
+
+@media screen and (max-width: 440px) {
+     .projet {
+          width: 100%;
+          background-position: center;
+     }
+}
 
 @media screen and (max-width: 876px) {
      .containerProjet {
@@ -1058,4 +1069,15 @@ mouvement non essentiel
 }
 
 /* =FIN contact= */
+
+/* SEC8 - RESPONSIVE */
+@media screen and (max-width: 440px) {
+     .contact {
+          align-items: flex-start !important;
+          flex-direction: column;
+          gap: 8px;
+     }
+}
+
+/* SEC8 - RESPONSIVE */
 /* ==FIN SECTION 8== */
