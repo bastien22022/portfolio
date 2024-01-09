@@ -322,7 +322,6 @@ mouvement non essentiel
 /* =FIN TITLE= */
 
 /* BUTTON */
-
 .btn {
      padding: 8px 16px;
      border-radius: 8px;
@@ -1066,6 +1065,13 @@ mouvement non essentiel
      font-size: 18px;
      font-style: normal;
      font-weight: 700;
+}
+
+.contact .networkSocial {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 8px;
 }
 
 /* =FIN contact= */
